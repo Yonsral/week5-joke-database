@@ -13,6 +13,10 @@
           <p style="margin: 0 0 5px 0;">
               <?= htmlspecialchars($joke['joketext'], ENT_QUOTES, 'UTF-8') ?>
           </p>
+          (by<a href="mailto:<?=htmlspecialchars($joke['email'], ENT_QUOTES,'UTF-8');?>">
+            <?=htmlspecialchars($joke['name'],ENT_QUOTES,'UTF-8'); ?></a>)
+          <a href="editjoke.php?id=<?=$joke['id']?>">Edit</a>
+
           <small style="color: gray;">
               Posted on: <?= htmlspecialchars($joke['jokedate'], ENT_QUOTES, 'UTF-8') ?>
           </small>

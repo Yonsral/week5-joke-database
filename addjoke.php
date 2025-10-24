@@ -22,8 +22,8 @@ if (isset($_POST['joketext'])) {
 
         // --- Thêm dữ liệu vào cơ sở dữ liệu ---
         $sql = 'INSERT INTO joke 
-                (joketext, imagepath, jokedate)
-                VALUES (:joketext, :imagepath, CURDATE())';
+                (joketext, imagepath, jokedate,authorid)
+                VALUES (:joketext, :imagepath, CURDATE(),1)';
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':joketext', $_POST['joketext']);
         $stmt->bindValue(':imagepath', $imagePath);
