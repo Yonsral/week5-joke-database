@@ -1,11 +1,13 @@
 <?php
 try{
     include 'includes/DatabaseConnection.php';
+    include 'includes/DatabaseFunctions.php';
 
-    $sql = 'SELECT joke.id, joketext,`name`, email FROM joke
-    INNER JOIN author ON authorid= author.id';
+    
+    $jokes = allJokes($pdo);
+    
 
-    $jokes = $pdo->query($sql);
+    $totalJokes = totalJokes($pdo);
 
     ob_start();
     include 'templates/jokes.html.php';
